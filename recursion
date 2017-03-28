@@ -1,0 +1,9 @@
+f[g_, u_, v_] := ((1 - g + Abs[v]^2) u + g v)/(g Conjugate[v] u +  1 + (1 - g) Abs[v]^2);
+ff[c_] := 1 - c + c/Conjugate[c];
+c = RandomReal[] + I RandomReal[]
+d = ff[c]
+Clear[z, w];
+z[n_] := z[n] = f[c, z[n - 1], w[n - 1]];
+w[n_] := w[n] = f[d, w[n - 1], z[n - 1]];
+z[0] = 1.72883 + 0.959805 i
+w[0] = 1.16593 + 1.72845 i
